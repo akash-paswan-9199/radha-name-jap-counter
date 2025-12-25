@@ -138,9 +138,10 @@ function startTimer() {
           minutes = 0;
         }
         document.getElementById("timer").innerText =
+          String(hours).padStart(2, "0") + ":" +
           String(minutes).padStart(2, "0") + ":" +
-          String(seconds).padStart(2, "0") + ":" +
-          String(houres).padStart(2, "0");
+          String(seconds).padStart(2, "0");
+      }
       }
     }, 1000);
   }
@@ -210,4 +211,5 @@ document.addEventListener("click", () => {
 
 
   //ganti bajegi buttton pai click karte 
+
 
