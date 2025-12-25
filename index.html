@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Jaap Counter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="media/radhaLogo2.png">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<header class="header">
+    <a href="index.html" class="logo"><img src="media/radhaLogo2.png" alt="img"></a>
+
+    <input type="checkbox" id="check">
+    <label for="check" class="icons">
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <i class="bx bx-x" id="close-icon"></i>
+    </label>
+                               
+    <nav  class="navbar">
+        <a href="index.html" style="--i:0;">Home</a>
+        <a href="index.html" style="--i:1;">About</a>
+        <a href="index.html" style="--i:2;">Premanand</a>
+        <a href="index.html" style="--i:3;">Mantaras</a>
+        <a href="index.html" style="--i:4;">Blog</a>
+        <a href="index.html" style="--i:5;">Contact</a>
+    </nav>
+</header>
+
+<!-- main section -->
+ <main class="main">
+
+    <!-- Top Row -->
+    <div class="flex items-center justify-between mb-4">
+
+      <!-- Music Button -->
+      <div class="flex-shrink-0 ml-8 sound">
+        <button id="musicBtn"
+          class="flex items-center space-x-1 border  border-gray-300 rounded px-2 py-1 hover:bg-gray-50 transition-colors">
+
+          <audio id="bgMusic" loop>
+            <source src="media/राधा नाम पुकार___ Shri Hit Premanand Govind Sharan Ji Maharaj __ [PZW5hLuAi9Y].mp3">
+          </audio>
+
+          <span id="musicIcon">🔇</span>
+          <span id="musicText" class="text-xs text-black-700">Off</span>
+        </button>
+      </div>
+
+      <!-- Heading -->
+      <div class="flex-1 text-center">
+        <h1 class="text-3xl  font-bold orange">
+          राधा नाम जाप
+        </h1>
+      </div>
+
+      <!-- Right Empty Space -->
+      <div class="flex-shrink-0 w-20"></div>
+    </div>
+
+    <!-- Timer -->
+    <div class="flex justify-center">
+      <div class="inline-flex items-center space-x-2 
+            bg-black-200/60 backdrop-blur-sm 
+            px-4 py-2 rounded-full 
+            text-black-600 font-medium border border-slate-300/40">
+        <span> ⏱ </span>
+        <span id="timer">00:00:00</span>
+         <span id="controlBtn" class="ml-2 px-2 py-1  text-orange-600 rounded cursor-pointer select-none text-sm hidden" onclick="togglePause()"> ⏸</span>
+      </div>
+    </div>
+
+  </div>
+
+<!-- second section -->
+   <div class="jaap-counter text-center py-8 px-4 relative">
+
+  <!-- Naam Dropdown -->
+  <div class="naam-title relative inline-block w-full max-w-xs mx-auto mb-8">
+    <select
+      id="name-select"
+      class="dropdown w-full px-4 py-2  rounded-lg border border-orange-300 bg-white/30 text-slate-700 font-medium backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-orange-400 transition">
+      <option value="राधा" >राधा</option>
+      <option value="दुर्गा">दुर्गा</option>
+      <option value="राधे ">राधे</option>
+      <option value="सरस्वती">सरस्वती</option>
+      <option value="राम">राम</option>
+      <option value="शिव">शिव</option>
+      <option value="श्री खाटूश्यामजी">श्री खाटूश्यामजी</option>
+      <option value="ॐ हं हनुमते नमः">ॐ हं हनुमते नमः</option>
+      <option value="हरे राम ">हरे राम </option>
+      <option value="श्री राधा वल्लभ श्री हरिवंश">श्री राधा वल्लभ श्री हरिवंश</option>
+      <option value="ॐ वृन्दावनेश्वर्यै नम:">ॐ वृन्दावनेश्वर्यै नम:</option>
+    </select>
+  </div>
+
+  <!-- Circular Counter -->
+  <div class="flex justify-center mb-8 md:mb-8">
+    <!-- Circle Mobile -->
+    <div class="relative md:hidden w-40 h-40">
+      <svg class="transform -rotate-90 w-full h-full">
+        <circle cx="80" cy="80" r="77" fill="transparent" stroke="currentColor" stroke-width="6" class="text-slate-200/50"></circle>
+        <circle id="circleMobile" cx="80" cy="80" r="77" fill="transparent" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0 483.805" class="text-orange-500 transition-all duration-500 ease-in-out"></circle>
+      </svg>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <h1 id="circleMobileText" class="text-4xl font-bold text-slate-700">0</h1>
+      </div>
+    </div>
+
+    <!-- Circle Desktop -->
+    <div class="relative hidden md:block w-52  h-52 ">
+      <svg class="transform -rotate-90 w-full h-full">
+        <circle cx="100" cy="100" r="96" fill="transparent" stroke="currentColor" stroke-width="8" class="text-slate-200/50"></circle>
+        <circle id="circleDesktop" cx="100" cy="100" r="96" fill="transparent" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-dasharray="0 603.18" class="text-orange-500 transition-all duration-500 ease-in-out"></circle>
+      </svg>
+      <div class="absolute inset-0 flex items-center justify-center ">
+        <h1 id="circleDesktopText" class="text-5xl font-bold text-slate-700">0</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="flex justify-center gap-3 md:gap-4 mb-8 flex-wrap">
+    <!-- Malas -->
+    <div class="rounded-xl transition-all duration-300 bg-gradient-to-b from-white/30 via-yellow-50 to-white/30 border-2 border-yellow-300 p-4 shadow-md min-w-[100px] md:min-w-[120px]">
+      <div class="text-center">
+        <div class="text-xl md:text-2xl mb-1 md:mb-2">📿</div>
+        <label class="text-sm font-medium text-slate-700 mb-1 text-xs md:text-sm">Malas</label>
+        <h3 id="malaCount" class="text-3xl font-semibold text-slate-700 text-lg md:text-xl">0</h3>
+      </div>
+    </div>
+
+    <!-- Total Japa -->
+    <div class="rounded-xl transition-all duration-300 bg-gradient-to-b from-white/30 via-pink-50 to-white/30 border-2 border-pink-300 p-4 shadow-md min-w-[100px] md:min-w-[120px]">
+      <div class="text-center">
+        <img src="media/radhaai.png" alt="Radha" class="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2">
+        <label class="text-sm font-medium text-slate-700 mb-1 text-xs md:text-sm">Total Japa</label>
+        <h3 id="totalJapa" class="text-3xl font-semibold text-slate-700 text-lg md:text-xl">0</h3>
+      </div>
+    </div>
+
+    <!-- Today's Japa -->
+    <div class="rounded-xl transition-all duration-300 bg-gradient-to-b from-white/30 via-yellow-50 to-white/30 border-2 border-yellow-300 p-4 shadow-md min-w-[100px] md:min-w-[120px]">
+      <div class="text-center">
+        <div class="text-xl md:text-2xl mb-1 md:mb-2">📆</div>
+        <label class="text-sm font-medium text-slate-700 mb-1 text-xs md:text-sm">Today's Japa</label>
+        <h3 id="todayJapa" class="text-3xl font-semibold text-slate-700 text-lg md:text-xl">0</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Count Button -->
+  <div class="flex justify-center mt-6">
+    <button id="countBtn" class="px-8 py-3 rounded-full bg-orange-500 text-white font-semibold text-lg shadow-lg hover:bg-orange-400 active:scale-95 transition bg-orange-300/25 hover:bg-orange-300/35
+">
+      Count
+    </button>
+
+  </div>
+
+</div>
+<audio id="bellSound" preload="auto">
+  <source src="media/bell.mp3" type="audio/mpeg">
+</audio>
+
+
+
+<!-- Full page Naam Animation -->
+<div id="naamAnimationContainer" class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-visible z-50"></div>
+
+
+
+ </main>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Profile Section -->
+    <div class="footer-profile">
+      <img src="media/akash.jpg" alt="Developer Photo" class="profile-img">
+      <h3>Akash Kumar Paswan</h3>
+      <p class="email">ak91998820@gmail.com</p>
+      
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="https://www.instagram.com/__akash__ap_804?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg">
+        </a>
+        <a href="https://www.instagram.com/bhajanmarg_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg">
+        </a>
+        <a href="https://github.com/akash-paswan-9199" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg">
+        </a>
+        <a href="https://www.linkedin.com/in/akash-kumar-867632346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
+        </a>
+        <a href="media/prmanandjii.mp4" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg">
+        </a>
+
+
+      </div>
+    </div>
+
+    <!-- Project Info -->
+    <div class="footer-project">
+      <h4>Radha Naam Jap Counter</h4>
+      <p>
+        A spiritual devotional web application designed for
+        Radha Naam Jap, meditation and inner peace.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Radha Naam Jap Counter • Built with Bhakti 🙏
+  </div>
+</footer>
+
+    <script src="app.js"></script>
+</nav>
+</body>
+</html>
+
