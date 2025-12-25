@@ -7,7 +7,7 @@ A devotional web application designed to help users practice **Naam Jap (chantin
 ## 🔗 Live Demo
 
 👉 **Live Website:**  
-https://akash-paswan-9199.github.io/radha-name-jap-counter/
+
 
 ---
 
