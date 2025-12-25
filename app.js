@@ -113,7 +113,7 @@ musicBtn.addEventListener("click", () => {
 
 let seconds = 0;
 let minutes = 0;
-let houres = 0;
+let hours = 0;
 let timerInterval = null;
 let timerRunning = false;
 let timerPaused = false;
@@ -134,7 +134,7 @@ function startTimer() {
           seconds = 0;
         }
         if (minutes === 60) {
-          houres++;
+          hours++;
           minutes = 0;
         }
         document.getElementById("timer").innerText =
@@ -211,5 +211,6 @@ document.addEventListener("click", () => {
 
 
   //ganti bajegi buttton pai click karte 
+
 
 
