@@ -7,7 +7,7 @@ A devotional web application designed to help users practice **Naam Jap (chantin
 ## 🔗 Live Demo
 
 👉 **Live Website:**  
-##  Live Demo : [🔗 SolarView ](https://akash-paswan-9199.github.io/radha-name-jap-counter/)
+##  Live Demo : [🔗 radha-name-jap-counter ](https://akash-paswan-9199.github.io/radha-name-jap-counter/)
 
 ---
 
